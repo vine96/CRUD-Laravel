@@ -163,7 +163,7 @@ header{
     margin-right: 5px;
 }
 
-#info-container #event-submit{
+#info-container #register-submit{
     margin: 20px 0;
 }
 
@@ -173,8 +173,12 @@ header{
     margin-top: 30px;
 }
 
-.dashboard-events-container th{
+.dashboard-registers-container th{
     width: 25%;
+}
+
+.dashboard-registers-container form{
+    display: inline-block;
 }
 
 /* footer */

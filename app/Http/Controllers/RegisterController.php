@@ -69,4 +69,10 @@ class RegisterController extends Controller
 
         return view('registers.dashboard', ['registers' => $registers]);
     }
+
+    public function destroy($id){
+        Register::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Usuário excluído!');
+    }
 }

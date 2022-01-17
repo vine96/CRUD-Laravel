@@ -19,5 +19,8 @@ Route::get('/', [RegisterController::class, 'index']);
 Route::get('/registers/create', [RegisterController::class, 'create'])->middleware('auth');
 Route::get('/registers/{id}', [RegisterController::class, 'show']);
 Route::post('/registers', [RegisterController::class, 'store']);
+Route::delete('/registers/{id}', [RegisterController::class, 'destroy']);
 Route::get('/dashboard', [RegisterController::class, 'dashboard'])->middleware('auth');
+
+
 

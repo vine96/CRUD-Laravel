@@ -22,11 +22,18 @@
         <tbody>
             @foreach ($registers as $register)
                 <tr>
-                   <td scope="row">{{ $loop->index + 1 }}</td>
+                   <td scropt="row">{{ $loop->index + 1 }}</td>
                    <td><a href="/registers/{{ $register->id }}">{{ $register->name }}</a></td>
                    <td>{{ $register->email }}</td>
                    <td>{{ $register->zip }}</td>
-                   <td><a href="#">Editar</a><a href="#">Deletar</a></td>
+                   <td>
+                       <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
+                        <form action="/registers/{{ $register->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
