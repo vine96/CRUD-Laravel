@@ -29,9 +29,26 @@ class RegisterController extends Controller
         $register->state = $request->state;
         $register->city = $request->city;
 
+        //Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/registers'), $imageName);
+            $register->image = $imageName;
+
+        }
+
         $register->save();
 
-        return redirect('/');
+        return redirect('/')->with('msg', 'Cadastro criado com sucesso!');
 
+    }
+
+    public function show($id){
+        $register = Register::findOrFail($id);
+
+        return view('registers.show', ['register' => $register]);
     }
 }

@@ -13,12 +13,12 @@
     <div id="cards-container" class="row">
         @foreach ($registers as $register)
             <div class="card col-md-3">
-                <img src="/img/register_placeholder3.jpg" alt="{{ $register->name }}">
+                <img src="/img/registers/{{ $register->image }}" alt="{{ $register->name }}">
                 <div class="card-body">
                     <p class="card-date">{{ $register->state }} - {{ $register->city }}</p>
                     <h5 class="card-title">{{ $register->name }}</h5>
                     <p class="card-participants">{{ $register->email }}</p>
-                    <a href="#" class="btn btn-primary">Visualizar</a>
+                    <a href="/registers/{{ $register->id }}" class="btn btn-primary">Visualizar</a>
                 </div>
             </div>
         @endforeach

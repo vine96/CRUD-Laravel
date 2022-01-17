@@ -4,8 +4,12 @@
 
 <div id="register-create-container" class="col-md-6 offset-md-3">
     <h1>Cadastro de Usuário</h1>
-    <form action="/registers" method="POST">
+    <form action="/registers" method="POST" enctype="multipart/form-data">
         @csrf
+        <div class="form-group">
+            <label for="image">Selecione uma foto sua:</label>
+            <input type="file" id="image" name="image" class="form-control-file">
+        </div>
         <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo">
