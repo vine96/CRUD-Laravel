@@ -14,14 +14,6 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/list', [RegisterController::class, 'index']);
-Route::get('/register/create', [RegisterController::class, 'create']);
-
-Route::get('/lista/{id?}', function ($id = null) {
-    return view('lista', ['id' => $id]);
-});
-
+Route::get('/', [RegisterController::class, 'index']);
+Route::get('/registers/create', [RegisterController::class, 'create']);
