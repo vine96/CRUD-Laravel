@@ -16,7 +16,8 @@ use App\Http\Controllers\RegisterController;
 
 
 Route::get('/', [RegisterController::class, 'index']);
-Route::get('/registers/create', [RegisterController::class, 'create']);
+Route::get('/registers/create', [RegisterController::class, 'create'])->middleware('auth');
 Route::get('/registers/{id}', [RegisterController::class, 'show']);
 Route::post('/registers', [RegisterController::class, 'store']);
+Route::get('/dashboard', [RegisterController::class, 'dashboard'])->middleware('auth');
 

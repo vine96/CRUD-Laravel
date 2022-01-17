@@ -9,9 +9,18 @@ class RegisterController extends Controller
 {
     public function index(){
 
-        $registers = Register::all();
+        $search = request('search');
 
-        return view('welcome',['registers' => $registers]);
+        if($search){
+            $registers = Register::where([
+                ['name', 'like', '%'.$search.'%']
+
+            ])->get();
+        }else{
+            $registers = Register::all();
+        }
+
+        return view('welcome',['registers' => $registers, 'search' => $search]);
     }
 
     public function create(){
@@ -24,7 +33,6 @@ class RegisterController extends Controller
 
         $register->name = $request->name;
         $register->email = $request->email;
-        $register->pass = $request->pass;
         $register->zip = $request->zip;
         $register->state = $request->state;
         $register->city = $request->city;
@@ -40,6 +48,9 @@ class RegisterController extends Controller
 
         }
 
+        $user = auth()->user();
+        $register->user_id = $user->id;
+
         $register->save();
 
         return redirect('/')->with('msg', 'Cadastro criado com sucesso!');
@@ -50,5 +61,12 @@ class RegisterController extends Controller
         $register = Register::findOrFail($id);
 
         return view('registers.show', ['register' => $register]);
+    }
+
+    public function dashboard(){
+        $user = auth()->user();
+        $registers = $user->registers;
+
+        return view('registers.dashboard', ['registers' => $registers]);
     }
 }

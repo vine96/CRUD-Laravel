@@ -18,7 +18,6 @@ class CreateRegistersTable extends Migration
             $table->timestamps();
             $table->string("name");
             $table->string("email");
-            $table->string("pass");
             $table->string("zip");
             $table->string("state");
             $table->string("city");

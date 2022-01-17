@@ -4,12 +4,16 @@
 
 <div id="search-container" class="col-md-12">
     <h1>Busque um registro</h1>
-    <form action="">
+    <form action="/" method="GET">
         <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
     </form>
 </div>
 <div id="registers-container" class="col-md-12">
-    <h2>Usuários cadastrados:</h2>
+    @if ($search)
+        <h2>Buscando por: {{ $search }}</h2>
+    @else
+        <h2>Usuários cadastrados:</h2>
+    @endif
     <div id="cards-container" class="row">
         @foreach ($registers as $register)
             <div class="card col-md-3">
@@ -22,6 +26,11 @@
                 </div>
             </div>
         @endforeach
+        @if(count($registers) == 0 && $search)
+            <p>Não foi possível encontrar nenhum registro com: {{ $search }} <a href="/">Ver todos</a></p>
+        @elseif(count($registers) == 0)
+            <p>Não há registros atualmente =/</p>
+        @endif
     </div>
 </div>
 

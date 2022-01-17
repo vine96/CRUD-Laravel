@@ -19,14 +19,6 @@
             <input type="text" class="form-control" id="email" name="email" placeholder="Email">
         </div>
         <div class="form-group">
-            <label for="pass">Senha:</label>
-            <input type="text" class="form-control" id="pass" name="pass" placeholder="Digite uma senha">
-        </div>
-        <div class="form-group">
-            <label for="senha2">Confirme a senha:</label>
-            <input type="text" class="form-control" id="pass2" name="pass2" placeholder="Confirme a senha">
-        </div>
-        <div class="form-group">
             <label for="zip">Cep:</label>
             <input type="text" class="form-control" id="zip" name="zip" placeholder="Digite o seu cep">
         </div>
