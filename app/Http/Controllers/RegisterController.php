@@ -37,8 +37,8 @@ class RegisterController extends Controller
         $register->state = $request->state;
         $register->city = $request->city;
 
-        //Image Upload
-        if($request->hasFile('image') && $request->file('image')->isValid()){
+        // Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
 
             $requestImage = $request->image;
             $extension = $requestImage->extension();
@@ -74,5 +74,33 @@ class RegisterController extends Controller
         Register::findOrFail($id)->delete();
 
         return redirect('/dashboard')->with('msg', 'Usuário excluído!');
+    }
+
+    public function edit($id) {
+
+        $register = Register::findOrFail($id);
+
+        return view('registers.edit', ['register' => $register]);
+
+    }
+
+    public function update(Request $request){
+
+        $data = $request->all();
+
+        //Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/registers'), $imageName);
+            $data['image'] = $imageName;
+
+        }
+
+        Register::findOrFail($request->id)->update($data);
+
+        return redirect('/dashboard')->with('msg', 'Usuário editado com sucesso!');
     }
 }

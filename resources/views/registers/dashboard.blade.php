@@ -27,7 +27,7 @@
                    <td>{{ $register->email }}</td>
                    <td>{{ $register->zip }}</td>
                    <td>
-                       <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
+                       <a href="/registers/edit/{{ $register->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
                         <form action="/registers/{{ $register->id }}" method="POST">
                             @csrf
                             @method('DELETE')
