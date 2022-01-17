@@ -33,7 +33,7 @@
                             <a href="/" class="nav-link">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/register/create" class="nav-link">Cadastro</a>
+                            <a href="/registers/create" class="nav-link">Cadastro</a>
                         </li>
                         <li class="nav-item">
                             <a href="/" class="nav-link">Lista</a>
