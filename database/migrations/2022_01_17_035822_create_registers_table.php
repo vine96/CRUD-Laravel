@@ -21,6 +21,9 @@ class CreateRegistersTable extends Migration
             $table->string("zip");
             $table->string("state");
             $table->string("city");
+            $table->string("rua");
+            $table->string("bairro");
+            $table->string("ibge");
         });
     }
 

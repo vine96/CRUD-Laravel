@@ -12,8 +12,9 @@
             <p class="register-criado"><ion-icon name="calendar-outline"></ion-icon>Criado em: {{ date('d/m/Y', strtotime($register->created_at)) }} às {{ date('H:i', strtotime($register->created_at)) }}</p>
             <p class="register-email"><ion-icon name="mail-outline"></ion-icon> {{ $register->email }}</p>
             <p class="register-cep"><ion-icon name="pin-outline"></ion-icon> {{ $register->zip }}</p>
-            <p class="register-estado"><ion-icon name="location-outline"></ion-icon> {{ $register->state }}</p>
-            <p class="register-cidade"><ion-icon name="navigate-outline"></ion-icon> {{ $register->city }}</p>
+            <p class="register-estado"><ion-icon name="location-outline"></ion-icon> {{ $register->state }} - {{ $register->city }}</p>
+            <p class="register-cidade"><ion-icon name="navigate-outline"></ion-icon> {{ $register->rua }}</p>
+            <p class="register-bairro"><ion-icon name="earth-outline"></ion-icon> {{ $register->bairro }} - {{ $register->ibge }}</p>
         </div>
     </div>
 </div>

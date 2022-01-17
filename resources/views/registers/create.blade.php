@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@extends('registers.cep')
 @section('title', 'Cadastro de Usuário')
 @section('content')
 
@@ -20,18 +21,34 @@
         </div>
         <div class="form-group">
             <label for="zip">Cep:</label>
-            <input type="text" class="form-control" id="zip" name="zip" placeholder="Digite o seu cep">
+            <input type="text" class="form-control" id="zip" value="" size="10" maxlength="9"
+            onblur="pesquisacep(this.value);" name="zip" placeholder="Digite o seu cep">
         </div>
         <div class="form-group">
-            <label for="state">Estado:</label>
-            <input type="text" class="form-control" id="state" name="state" placeholder="Digite o seu estado">
+            <label for="rua">Rua:</label>
+            <input type="text" class="form-control" id="rua" name="rua">
         </div>
         <div class="form-group">
-            <label for="city">Cidade:</label>
-            <input type="text" class="form-control" id="city" name="city" placeholder="Digite a sua cidade">
+            <label for="bairro">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro">
+        </div>
+        <div class="form-group">
+            <label for="uf">Estado:</label>
+            <input type="text" class="form-control" id="uf" name="state" readonly>
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="city" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ibge">IBGE:</label>
+            <input type="text" class="form-control" id="ibge" name="ibge" readonly>
         </div>
         <input type="submit" class="btn btn-success" value="Criar">
     </form>
 </div>
 
+@endsection
+
+@section('content2')
 @endsection

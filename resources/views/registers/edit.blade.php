@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@extends('registers.cep')
 @section('title', 'Editando: ' . $register->name)
 @section('content')
 
@@ -22,18 +23,34 @@
         </div>
         <div class="form-group">
             <label for="zip">Cep:</label>
-            <input type="text" class="form-control" id="zip" name="zip" placeholder="Digite o seu cep" value="{{ $register->zip }}">
+            <input type="text" class="form-control" id="zip" value="{{ $register->zip }}" size="10" maxlength="9"
+            onblur="pesquisacep(this.value);" name="zip" placeholder="Digite o seu cep">
         </div>
         <div class="form-group">
-            <label for="state">Estado:</label>
-            <input type="text" class="form-control" id="state" name="state" placeholder="Digite o seu estado" value="{{ $register->state }}">
+            <label for="rua">Rua:</label>
+            <input type="text" class="form-control" id="rua" name="rua" value="{{ $register->rua }}">
         </div>
         <div class="form-group">
-            <label for="city">Cidade:</label>
-            <input type="text" class="form-control" id="city" name="city" placeholder="Digite a sua cidade" value="{{ $register->city }}">
+            <label for="bairro">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" value="{{ $register->bairro }}">
+        </div>
+        <div class="form-group">
+            <label for="uf">Estado:</label>
+            <input type="text" class="form-control" id="uf" name="state" readonly value="{{ $register->state }}">
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="city" value="{{ $register->city }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ibge">IBGE:</label>
+            <input type="text" class="form-control" id="ibge" name="ibge" value="{{ $register->ibge }}" readonly>
         </div>
         <input type="submit" class="btn btn-success" value="Editar Registro">
     </form>
 </div>
 
+@endsection
+
+@section('content2')
 @endsection

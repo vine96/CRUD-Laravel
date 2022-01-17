@@ -36,6 +36,9 @@ class RegisterController extends Controller
         $register->zip = $request->zip;
         $register->state = $request->state;
         $register->city = $request->city;
+        $register->bairro = $request->bairro;
+        $register->rua = $request->rua;
+        $register->ibge = $request->ibge;
 
         // Image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -103,4 +106,5 @@ class RegisterController extends Controller
 
         return redirect('/dashboard')->with('msg', 'Usuário editado com sucesso!');
     }
+
 }
